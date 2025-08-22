@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>U4_P3</title>
+		<script>
+			function showdata()
+			{
+				var xmlhttp=new XMLHttpRequest();
+				var str=document.getElementById("s1").value;
+				xmlhttp.open("GET","A3.php?name="+str,true);
+				
+				xmlhttp.onreadystatechange=function()
+				{
+					if(xmlhttp.readyState==4)
+					{
+						document.getElementById("d1").innerHTML=xmlhttp.responseText;
+					}
+				}
+				xmlhttp.send();
+			}
+		</script>
+	</head>
+	<body>
+		<select id="s1" onchange="showdata();">
+			<option>AC</option>
+			<option>FRIDGE</option>
+			<option>TV</option>
+			<option>SMARTPHONE</option>
+		</select>
+		<div id="d1" style="color:green;">
+	</body>
+</html>

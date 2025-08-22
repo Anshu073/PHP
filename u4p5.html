@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>U4_P5</title>
+		<script>
+		function showdata()
+		{
+			var xmlhttp=new XMLHttpRequest();
+			var str=document.getElementsByTagName("input");
+			var r1;
+			
+			for(var i=0;i<str.length;i++)
+			{
+				if(str[i].type=="radio" && str[i].checked)
+				{
+					r1=str[i].value;
+				}
+			}
+			xmlhttp.open("GET","A5.php?name="+r1,true);
+			
+			xmlhttp.onreadystatechange=function()
+			{
+				if(xmlhttp.readyState==4)
+				{
+					document.getElementById("d1").innerHTML=xmlhttp.responseText;
+				}
+			}
+			xmlhttp.send();
+		}
+		</script>
+	</head>
+	<body>
+		Select any language:<br>
+		<input type="radio" name="r1" onclick="showdata();" value="PHP">PHP
+		<input type="radio" name="r1" onclick="showdata();" value="PYTHON">PYTHON
+		<input type="radio" name="r1" onclick="showdata();" value="JAVA">java
+		<input type="radio" name="r1" onclick="showdata();" value="C">c
+		
+		<div id="d1" style="color:green;">
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>U4 P1</title>
+		<script>
+		function showdata()
+		{
+			var xmlhttp=new XMLHttpRequest();
+			var str=document.getElementById("t1").value;
+			xmlhttp.open("GET","A1.php?name="+str,true);
+			
+			xmlhttp.onreadystatechange=function()
+			{
+				if(xmlhttp.readyState==4)
+				{
+					document.getElementById("info").innerHTML=xmlhttp.responseText;
+				}
+			}
+			xmlhttp.send();
+		}
+		</script>
+	</head>
+	<body>
+		Enter your name:
+		<input type="text" id="t1" onkeyup="showdata();">
+		<div id="info" style="color:green;">
+	</body>
+</html>
